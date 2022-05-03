@@ -1,0 +1,11 @@
+page\ContactInfoPage.class
+test\ContactInfoPageTest.class
+test\BaseClass.class
+page\CreateAccountPage.class
+test\HomePageValidations.class
+page\SigninPage.class
+page\HomePage.class
+test\CreateAccountPageTest.class
+test\HomePageTest.class
+test\SigninPageTest.class
+utilities\ReadConfig.class
