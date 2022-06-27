@@ -1,123 +1,107 @@
 package page;
 
 
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
+
 
 import test.BaseClass;
 
 public class CreateAccountPage extends BaseClass {
-	SigninPage signin = new SigninPage();
-	By email = By.cssSelector("[id=email_create]");
-	By firstname = By.id("customer_firstname");
-	By lastname = By.id("customer_lastname");
-	By password = By.cssSelector("[type=password]");
 	
-	public void createAccount() throws Exception {
-		signin.Sigin();
+	public static By email = By.cssSelector("[id=email_create]");
+	public static By firstname = By.id("customer_firstname");
+	public static By lastname = By.id("customer_lastname");
+	public static By password = By.cssSelector("[type=password]");
+	public static By create_btn = By.cssSelector("[id=SubmitCreate]");
+	public static By optin = By.id("optin");
+
+	public static void createAccount(String name, String lname, String Password) throws Exception {
+		click(signinbtn);
 		String Email = randomstring() + "@gmail.com";
-		driver.findElement(email).sendKeys(Email);
-		driver.findElement(By.cssSelector("[id=SubmitCreate]")).click();
-		Thread.sleep(3000);
-	}
-	
-	public void gender() {
-		driver.findElement(By.cssSelector("[for=id_gender1]")).click();
+		sendKeys(email,Email);
+		click(create_btn);
+		click(By.cssSelector("[for=id_gender1]"));
 		//driver.findElement(By.cssSelector("[for=id_gender2]")).click();
+		sendKeys(firstname,name);
+		sendKeys(lastname,lname);
+		sendKeys(password,Password);
 	}
-	
-	public void firstName(String name) {
-		driver.findElement(firstname).sendKeys(name);
-	}
-	
-	public void lastName(String lname) {
-		driver.findElement(lastname).sendKeys(lname);
-	}
-	
-	public void passwd(String Password) {
-		driver.findElement(password).sendKeys(Password);
-	}
-	
-	public void days() {
+	public static void days() {
 		WebElement days = driver.findElement(By.cssSelector("[id=days]"));
-		Select select = new Select(days);
-		select.selectByValue("4");
+		selectValue(days, "4");
+		
 	}
 	
-	public void months() {
+	public static void months() {
 		WebElement months = driver.findElement(By.cssSelector("[id=months]"));
-		Select select = new Select(months);
-		select.selectByIndex(2);
+		selectIndex(months, 2);
 	}
 	
-	public void years() {
+	public static void years() {
 		WebElement years = driver.findElement(By.cssSelector("[id=years]"));
-		Select select = new Select(years);
-		select.selectByValue("2000");
+		selectValue(years, "2000");
 	}
 	
-	public void news() {
+	public static void news() {
 		driver.findElement(By.name("newsletter")).click();
 		driver.findElement(By.id("optin")).click();
+//		click(By.name("newsletter"));
+//		click(optin);
 	}
 	
-	public void afname(String text) {
+	public static void afname(String text) {
 		WebElement firstname = driver.findElement(By.name("firstname"));
-		firstname.sendKeys(text);
+		sendKeys(firstname, text);
 	}
 	
-	public void alname(String text) {
+	public static void alname(String text) {
 		WebElement lastname = driver.findElement(By.id("lastname"));
-		lastname.sendKeys(text);
+		sendKeys(lastname, text);
 	}
 	
-	public void company(String text) {
-		driver.findElement(By.id("company")).sendKeys(text);
+	public static void company(String text) {
+		sendKeys(By.id("company"), text);
 	}
 	
-	public void address(String text) {
-		driver.findElement(By.name("address1")).sendKeys(text);
-		driver.findElement(By.name("address2")).sendKeys(text);
+	public static void address(String text) {
+		sendKeys(By.name("address1"), text);
+		sendKeys(By.name("address2"), text);
 	}
 	
-	public void city(String text) {
-		driver.findElement(By.name("city")).sendKeys(text);
+	public static void city(String text) {
+		sendKeys(By.name("city"), text);
 	}
 	
-	public void state() {
+	public static void state() {
 		WebElement State = driver.findElement(By.name("id_state"));
-		Select select = new Select(State);
-		select.selectByValue("22");
+		selectValue(State, "22");
 	}
 	
-	public void Zip(String text) {
-		driver.findElement(By.id("postcode")).sendKeys(text);
+	public static void Zip(String text) {
+		sendKeys(By.id("postcode"), text);
 	}
 	
-	public void Country() {
+	public static void Country() {
 		WebElement country = driver.findElement(By.name("id_country"));
-		Select select = new Select(country);
-		select.selectByValue("21");
+		selectValue(country, "21");
 	}
 	
-	public void Addinfo(String text) {
-		driver.findElement(By.name("other")).sendKeys(text);
+	public static void Addinfo(String text) {
+		sendKeys(By.name("other"), text);
 	}
 	
-	public void Homephone() {
+	public static void Homephone() {
 		String hphone = randomNum();
-		driver.findElement(By.name("phone")).sendKeys(hphone);
+		sendKeys(By.name("phone"), hphone);
 	}
 	
-	public void Mobilephone() {
+	public static void Mobilephone() {
 		String mphone = randomNum();
-		driver.findElement(By.id("phone_mobile")).sendKeys(mphone);
+		sendKeys(By.id("phone_mobile"), mphone);
 	}
 	
-	public void register() {
-		driver.findElement(By.xpath("//span[contains(.,'Register')]")).click();
+	public static void register() {
+		click(By.xpath("//span[contains(.,'Register')]"));
 	}
  }

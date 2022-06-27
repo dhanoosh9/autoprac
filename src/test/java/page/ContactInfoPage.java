@@ -2,32 +2,29 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import test.BaseClass;
 
-public class ContactInfoPage extends BaseClass {
-	
 
-	By contactus = By.xpath("//a[contains(@title,'Contact Us')]");
+public class ContactInfoPage extends BaseClass{
 	
-	public void Contactus(String text) throws InterruptedException {
+	public static By Contactus = By.xpath("//a[contains(@title,'Contact Us')]");
+	public static By Email = By.xpath("//input[@id='email']");
+	public static By Order = By.xpath("//input[contains(@id,'id_order')]");
+	public static By Message = By.xpath("//textarea[contains(@id,'message')]");
+	public static By Submit = By.xpath("//span[contains(.,'Send')]");
+	
+	
+	public static void Contactus(String email, String order, String message) {
 		
-		driver.findElement(contactus).click();
+		click(Contactus);
 		WebElement dropdown = driver.findElement(By.xpath("//select[contains(@id,'id_contact')]"));
-		Select select = new Select(dropdown);
-		select.selectByVisibleText("Customer service");
-		Thread.sleep(2000);
-		select.selectByVisibleText("Webmaster");
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys(text);
-	}
-	
-	public void contreference(String text) {
-		driver.findElement(By.xpath("//input[contains(@id,'id_order')]")).sendKeys(text);
-	}
-	
-	public void contmessage(String text) {
-		driver.findElement(By.xpath("//textarea[contains(@id,'message')]")).sendKeys(text);
-		driver.findElement(By.xpath("//span[contains(.,'Send')]")).click();
+		selectValue(dropdown,"2");
+
+//		select.selectByVisibleText("Webmaster");
+		sendKeys(Email,email);
+		sendKeys(Order,order);
+		sendKeys(Message,message);
+		click(Submit);
 	}
 }

@@ -1,30 +1,14 @@
 package page;
 
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-
-
-import test.BaseClass;
 
 
 
-public class HomePage extends BaseClass {
+public class HomePage {
 
-	By homebtn = By.xpath("//img[@alt='My Store']");
-	By search = By.xpath("(//input[contains(@class,'input')])[1]");
-	By contactus = By.xpath("//a[contains(@title,'Contact Us')]");
-	
-	
-	public void homeBtn()
-	{
-		driver.findElement(homebtn).click();
-	}
-	
-	public void Search(String text) {
-		driver.findElement(search).sendKeys(text);
-		driver.findElement(search).sendKeys(Keys.RETURN);
-	}
-	
-	
+	public static By homebtn = By.xpath("//img[@alt='My Store']");
+	public static By search_box = By.xpath("(//input[contains(@class,'input')])[1]");
+	public static By search_button = By.xpath("//button[@name='submit_search']");
 	
 }

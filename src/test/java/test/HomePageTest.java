@@ -1,10 +1,6 @@
 package test;
 
 
-
-
-import java.time.Duration;
-
 import org.testng.annotations.Test;
 
 
@@ -12,15 +8,13 @@ import page.HomePage;
 
 public class HomePageTest extends BaseClass {
 	
-
+	public String item = readconfig.getSearch_item();
+	
 	@Test
-	public void homepageTest() throws InterruptedException {
-		
-		HomePage homepage = new HomePage();
-		
-		homepage.homeBtn();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		homepage.Search("t-shirt");
-		
+	public void homepage() {	
+		click(HomePage.homebtn);
+		sendKeys(HomePage.search_box,item);
+		click(HomePage.search_button);
 	}
+	
 }

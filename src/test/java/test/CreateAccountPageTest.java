@@ -8,28 +8,23 @@ public class CreateAccountPageTest extends BaseClass {
 	
 	@Test
 	public void createaccountpagetest() throws Exception {
-		CreateAccountPage account = new CreateAccountPage();
-		account.createAccount();
-		account.gender();
-		account.firstName("ryan");
-		account.lastName("ryder");
-		account.passwd("test123");
-		account.days();
-		account.months();
-		account.years();
-		account.news();
-		account.afname("ryan");
-		account.alname("ryder");
-		account.company("tech geek");
-		account.address("blah");
-		account.city("monster");
-		account.state();
-		account.Zip("30003");
-		account.Country();
-		account.Addinfo("something");
-		account.Homephone();
-		account.Mobilephone();
-		account.register();
+		CreateAccountPage.createAccount("ryan","ryder","test123");
+		CreateAccountPage.days();
+		CreateAccountPage.months();
+		CreateAccountPage.years();
+		CreateAccountPage.news();
+		CreateAccountPage.afname("ryan");
+		CreateAccountPage.alname("ryder");
+		CreateAccountPage.company("tech geek");
+		CreateAccountPage.address("blah");
+		CreateAccountPage.city("monster");
+		CreateAccountPage.state();
+		CreateAccountPage.Zip("30003");
+		CreateAccountPage.Country();
+		CreateAccountPage.Addinfo("something");
+		CreateAccountPage.Homephone();
+		CreateAccountPage.Mobilephone();
+		CreateAccountPage.register();
 		
 	}
 }

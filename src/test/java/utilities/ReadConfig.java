@@ -6,9 +6,9 @@ import java.util.Properties;
 
 public class ReadConfig {
 	
-	 Properties prop;
+	static Properties prop;
 
-	 public void loadconfig() {
+	 public ReadConfig() {
 		 
 		 File src = new File("./Configuration/config.properties");
 		 
@@ -24,12 +24,12 @@ public class ReadConfig {
 		
 	 }
 	 	
-//	 	public String getBrowser() {
-//	 		String browser = prop.getProperty("browser");
-//	 		return browser;
-//	 	}
-	 	
-		public String getApplicationURL() {
+	 	public String getbrowserName() {
+	 		String browserName = prop.getProperty("browser");
+	 		return browserName;
+	 	}
+	 
+	 	public String getApplicationURL() {
 			String url = prop.getProperty("baseURL");
 			return url;
 		}
@@ -42,5 +42,10 @@ public class ReadConfig {
 		public String getPassword() {
 			String password = prop.getProperty("password");
 			return password;
+		}
+		
+		public String getSearch_item() {
+			String item = prop.getProperty("search_item");
+			return item;
 		}
 }
